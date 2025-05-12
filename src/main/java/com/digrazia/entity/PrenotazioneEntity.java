@@ -1,21 +1,20 @@
-
 package com.digrazia.entity;
 
-
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
-@Entity
+import java.time.LocalDate;
 
-public class Prenotazione {
+@Entity(name = "prenotazione")
+public class PrenotazioneEntity {
     @Id
     private String id;
     private String utenteId;
     private String disponibilitaId;
-    private String data;
+    @Column(name = "data_prenotazione")
+    private LocalDate data;
 
-    public Prenotazione() {
-    }
     public String getId() {
         return id;
     }
@@ -40,11 +39,11 @@ public class Prenotazione {
         this.disponibilitaId = disponibilitaId;
     }
 
-    public String getData() {
+    public LocalDate getData() {
         return data;
     }
 
-    public void setData(String data) {
+    public void setData(LocalDate data) {
         this.data = data;
     }
 }
